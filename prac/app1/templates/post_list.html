@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for post in posts %}
+<a href="{% url 'post_edit' pk=post.pk %}">{% include './icons/pencil-square.svg' %}</a>
+<a href="{% url 'post_delete' pk=post.pk %}">{% include './icons/clipboard-minus.svg' %}</a>
+<h3 style="font-family:latin;" >{{post.author}}</h3>
+<h3 style="font-family:latin;" ><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+<h3 style="font-family:latin;">{{post.desc}}</h3>
+{% endfor %}
+{% endblock %}
